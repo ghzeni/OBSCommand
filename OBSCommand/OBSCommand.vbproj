@@ -3,16 +3,10 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <RootNamespace>OBSCommand</RootNamespace>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
     <StartupObject>Sub Main</StartupObject>
     <Platforms>AnyCPU;ARM32;ARM64</Platforms>
-    <PostBuildEvent>cd E:\Data\Visual Studio 2019\Projects\GitHub\obs-websocket-dotnet\OBSCommand2
-rem dotnet publish OBSCommand.vbproj -c release -r ubuntu.18.04-x64
-rem dotnet publish OBSCommand.vbproj -c release -r ubuntu.20.04-x64
-rem dotnet publish OBSCommand.vbproj -c release -r ubuntu.21.10-x64
-rem dotnet deb OBSCommand.vbproj -c Release -f netcoreapp3.1 -r ubuntu.21.10-x64
-rem dotnet publish OBSCommand.vbproj -c release -r osx.10.11-x64</PostBuildEvent>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
     <Description>Control OBS via Websocket plugin</Description>
     <Company>FSC-SOFT</Company>
@@ -23,6 +17,22 @@ rem dotnet publish OBSCommand.vbproj -c release -r osx.10.11-x64</PostBuildEvent
     <RepositoryUrl>https://github.com/REALDRAGNET/OBSCommand</RepositoryUrl>
     <PackageReleaseNotes>for OBS Studio 28.x.x and above</PackageReleaseNotes>
     <AssemblyVersion>1.6.3.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM32'">
+    <PlatformTarget>ARM32</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM32'">
+    <PlatformTarget>ARM32</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
